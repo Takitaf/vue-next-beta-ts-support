@@ -1,7 +1,9 @@
 <template>
     <img src="../logo.png">
     <h1>Hello Vue 3!</h1>
+    <div>{{state.number}}</div>
     <div>{{doubled}}</div>
+    <div>{{name}}</div>
     <button @click="incrementNumber">Click!</button>
 </template>
 
@@ -9,17 +11,22 @@
 import {defineComponent, reactive, computed} from 'vue';
 
 export default defineComponent({
-    setup() {
+    props: {
+        name: {
+            type: String,
+            default: 'Test'
+        }
+    },
+    setup(props) {
         const state = reactive({
             number: 0
         });
 
         const doubled = computed(() => state.number * 2);
-
         const incrementNumber = () => state.number += 1;
 
         return {
-            ...state,
+            state,
             doubled,
             incrementNumber
         }
