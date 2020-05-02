@@ -1,6 +1,6 @@
-# vue-next-webpack-preview
+# Vue 3 Beta with Typescript
 
-> Minimal webpack setup for Vue 3 (beta) 
+> Minimal webpack setup for Vue 3 (beta) with Typescript compilator added
 
 This is for preview purposes only. There might be bugs and undocumented behavior differences from v2, which are expected.
 
