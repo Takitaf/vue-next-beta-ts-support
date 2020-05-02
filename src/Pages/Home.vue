@@ -2,13 +2,13 @@
     <img src="../logo.png">
     <h1>Hello Vue 3!</h1>
     <div>{{state.number}}</div>
-    <div>{{doubled}}</div>
+    <div>{{state.doubled}}</div>
     <div>{{name}}</div>
     <button @click="incrementNumber">Click!</button>
 </template>
 
 <script lang="ts">
-import {defineComponent, reactive, computed} from 'vue';
+import {defineComponent, reactive, computed, Ref} from 'vue';
 
 export default defineComponent({
     props: {
@@ -18,16 +18,14 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const state = reactive({
-            number: 0
+        const state: {number: number, doubled: number} = reactive({
+            number: 0,
+            doubled: computed(() => state.number * 2)
         });
-
-        const doubled = computed(() => state.number * 2);
         const incrementNumber = () => state.number += 1;
 
         return {
             state,
-            doubled,
             incrementNumber
         }
     }
